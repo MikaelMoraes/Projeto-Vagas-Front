@@ -6,7 +6,7 @@
             <div class="col">
                 <div class="form-group">
                     <label>Titulo da Vaga</label>
-                    <input type="text" class="form-control" placeholder="Ex: PHP pleno">
+                    <input type="text" class="form-control" placeholder="Ex: PHP pleno" v-model="titulo">
                     <small class="form-text text-muted">Informe Plavras que estejam relacionadas com o Titulo da
                         Vaga</small>
                 </div>
@@ -14,14 +14,23 @@
         </div>
         <div class="row">
             <div class="col">
-                <button class="btn btn-outline-dark mt-2">Buscar</button>
+                <button class="btn btn-outline-dark mt-2" type="button" @click="pesquisarVaga()">Buscar</button>
             </div>
         </div>
     </div>
 
 </template>
 <script>
-export default{
-    name: 'PesquisarVaga'
+export default {
+    name: 'PesquisarVaga',
+    data: () => ({
+        titulo: ''
+        
+    }),
+    methods:{
+        pesquisarVaga() {
+            this.emitter.emit('filtrarVagas', { titulo: this.titulo })
+        }
+    }
 }
 </script>

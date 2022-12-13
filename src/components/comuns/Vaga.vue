@@ -7,7 +7,7 @@
 
           <div class="form-check form-switch">
             <input type="checkbox" class="form-check-input" v-model="favoritada">
-            <label class="form-check-label">Favoritar |{{favoritada}}</label>
+            <label class="form-check-label">Favorita</label>
           </div>
           
         </div>

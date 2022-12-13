@@ -1,11 +1,25 @@
 <template>
-    <div class="alert alert-success text-center" role="alert">
-       Cadastro realizado com sucesso!!!
+    <div :class="estiloAlerta" role="alert">
+        <slot name="titulo"></slot>
+        <hr>
+        <slot></slot>
     </div>
 </template>
 <script>
 export default {
-    name: 'AlertaVagas'
+    name: 'AlertaVagas',
+    props:{
+        tipo: String
+    },
+    computed:{
+        estiloAlerta(){
+            switch(this.tipo){
+                case 'erro': return 'alert alert-danger'
+                case 'sucesso': return 'alert alert-success'
+               default: return 'alert alert-success'
+            }
+        }
+    }
 }
 </script>
 <style scoped>
